@@ -1,0 +1,383 @@
+/*CSS Varijavble:*/
+:root {
+    --osnovna: rgb(220, 220, 220);
+    --osnovna-tamnija: rgb(12, 19, 27);
+}
+
+/*Resetovanje početnih podešavanja stranice:*/
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    /*font-size: 16px;*/
+    line-height: 1.7;
+    color: rgb(0, 0, 0);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:link,
+:active {
+    text-decoration: none;
+}
+
+.blur {
+    -webkit-filter: url(#svg-blur);
+    filter: url(#svg-blur);
+    position: absolute;
+
+}
+
+#container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#container-levo {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-color: var(--osnovna);
+}
+
+#container-desno {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 60%;
+    height: 100%;
+    background-color: var(--osnovna-tamnija);
+}
+
+#slika-levo {
+    z-index: 2;
+    position: absolute;
+    top: 40%;
+    left: -60%;
+
+    transform: translateY(-50%);
+    height: 55%;
+    width: 45%;
+    box-shadow: 2px 7px 7px black;
+}
+
+
+#slika-levo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#naslov-nosac {
+    position: absolute;
+    left: 45%;
+    width: 100%;
+    height: 100px;
+    /*border: 2px solid whitesmoke;*/
+    top: 85%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    mix-blend-mode: difference;
+    opacity: 0;
+}
+
+#naslov {
+    color: var(--osnovna);
+    font-weight: 300;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+
+
+.NeaktivnoD {
+    z-index: 2;
+    position: absolute;
+    right: -160px;
+    top: 40px;
+    color: var(--osnovna);
+    font-size: 2rem;
+    height: 40px;
+    border: 1px solid var(--osnovna);
+    width: 100px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px;
+    cursor: pointer;
+    transform-origin: bottom right;
+    transition: all 0.4s ease;
+}
+
+.NeaktivnoD:hover {
+    transform: scale(1.2);
+}
+
+#Home {
+    top: 40px;
+
+}
+
+#About {
+    top: 100px;
+}
+
+#Team {
+    top: 160px;
+}
+
+#Contact {
+    top: 220px;
+}
+
+.AktivnoD {
+    z-index: 2;
+    position: absolute;
+    top: 40px;
+    right: -160px;
+    color: var(--osnovna-tamnija);
+    background-color: var(--osnovna);
+    font-size: 2rem;
+    height: 40px;
+    border: 1px solid var(--osnovna);
+    width: 120px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px;
+    cursor: pointer;
+    transform-origin: bottom right;
+    transform: scale(1.2);
+}
+
+#nosac-sektora {
+    z-index: 3;
+    position: absolute;
+    width: 85%;
+    height: 255%;
+    top: 92.5%;
+    opacity: 0;
+    left: 3%;
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 8px 10px 9px rgba(0, 0, 0, 0.85);
+}
+
+#sektor-about {
+    position: relative;
+    background-color: transparent;
+    height: 33.33%;
+    width: 100%;
+    border: 1px solid var(--osnovna);
+    mix-blend-mode: difference;
+    display: grid;
+    grid-template-columns: repeat(1fr, 3);
+    grid-template-areas:
+        'web-kart logo-kart usluge-kart'
+        '. kontakt-about .'
+    ;
+    align-items: center;
+
+}
+
+#kontak-about {
+    grid-area: kontakt-about;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 50px;
+    border-radius: 7px;
+    font-size: 2rem;
+    background-color: var(--osnovna);
+    color: var(--osnovna-tamnija);
+    justify-self: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#kontak-about:hover {
+    color: var(--osnovna);
+    background-color: var(--osnovna-tamnija);
+    transform: scale(1.08);
+    border: 1px solid var(--osnovna);
+}
+
+#kartWeb {
+    grid-area: web-kart;
+    justify-self: center;
+    cursor: pointer;
+    width: 300px;
+
+}
+
+#kartWeb img {
+    margin-top: 20px;
+    width: 80%;
+    border-radius: 5px;
+}
+
+#kartLogo {
+    grid-area: logo-kart;
+    justify-self: center;
+    cursor: pointer;
+    width: 300px;
+
+}
+
+#kartLogo img {
+    margin-top: 20px;
+    width: 80%;
+    border-radius: 5px;
+}
+
+#kartUsluge {
+    grid-area: usluge-kart;
+    justify-self: center;
+    cursor: pointer;
+    width: 300px;
+}
+
+#kartUsluge img {
+    margin-top: 20px;
+    width: 80%;
+    border-radius: 5px;
+}
+
+
+
+.flip-card {
+
+    width: 60%;
+    height: 300px;
+    perspective: 1000px;
+
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    padding: 30px;
+
+}
+
+.flip-card-front h1,
+.flip-card-back h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.flip-card-front p,
+.flip-card-back p {
+    font-size: 1.6rem;
+}
+
+
+.flip-card-front {
+    background-color: var(--osnovna);
+    color: var(--osnovna-tamnija);
+    backface-visibility: hidden
+}
+
+.flip-card-back {
+    background-color: green;
+    color: var(--osnovna);
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+#sektor-team {
+    position: relative;
+    background-color: transparent;
+    height: 33%;
+    width: 100%;
+    border: 1px solid var(--osnovna);
+    mix-blend-mode: difference;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#sektor-contact {
+    position: relative;
+    background-color: transparent;
+    height: 33.33%;
+    width: 100%;
+    border: 1px solid var(--osnovna);
+    mix-blend-mode: difference;
+}
+
+#krug {
+    position: relative;
+    width: 350px;
+    height: 350px;
+}
+
+#krug1 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--osnovna);
+    border-radius: 50%;
+    top: 60px;
+    left: -0;
+    background-color: green;
+}
+
+#krug2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--osnovna);
+    border-radius: 50%;
+    top: 60px;
+    left: 300px;
+}
+
+#krug3 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--osnovna);
+    border-radius: 50%;
+    top: 325px;
+    left: 150px;
+}
